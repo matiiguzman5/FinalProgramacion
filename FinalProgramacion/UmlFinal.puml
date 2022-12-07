@@ -1,0 +1,56 @@
+@startuml
+class Llave {
++ ArrayList<Equipo> getEquiposQueAvanzan()
+}
+class EtapaMundial {
+- String descripcionEtapa
+- ArrayList<Partido> partidos
++ <<Create>> EtapaMundial()
++ String getDescripcionEtapa()
++ void setDescripcionEtapa(String)
++ void addPartido(Partido)
+# ArrayList<Partido> getPartidos()
++ ArrayList<Equipo> getEquiposQueAvanzan()
+}
+class Resultado {
+- int golesLocal
+- int golesVisita
++ <<Create>> Resultado(int,int)
++ <<Create>> Resultado()
++ int getGolesLocal()
++ int getGolesVisitante()
++ boolean ganoLocal()
++ boolean empate()
+}
+class Grupo {
++ ArrayList<Equipo> getEquiposQueAvanzan()
+}
+class Main {
++ {static} void main(String[])
+}
+class Equipo {
+- String nombre
+- ArrayList<Partido> partidosJugados
+- int puntos
++ <<Create>> Equipo(String)
++ String getNombre()
++ void setNombre(String)
++ int getPuntaje()
++ void setPuntaje(int)
+}
+class Partido {
+- Date fecha
+- Equipo local
+- Equipo visitante
+- Resultado resultado
++ <<Create>> Partido(Date,Equipo,Equipo,Resultado)
++ Resultado getResultado()
++ Equipo getLocal()
++ Equipo getVisitante()
++ void setEquipo(EtapaMundial)
+}
+
+
+EtapaMundial <|-- Llave
+EtapaMundial <|-- Grupo
+@enduml
